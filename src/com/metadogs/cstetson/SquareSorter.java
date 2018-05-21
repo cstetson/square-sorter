@@ -154,23 +154,4 @@ public class SquareSorter {
         Collections.sort(intArray);
         return intArray;
     }
-
-    private boolean createFile(String fileName, int start, int end, int number) throws Exception
-    {
-        ArrayList<Long> intArray = new ArrayList<>();
-        // Could be used to write a file with many values and repeat the process
-        try
-        {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
-            writer.write(intArray.toString());
-
-            writer.close();
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-            throw e;
-        }
-        return true;
-    }
 }
