@@ -36,7 +36,7 @@ public class SquareSorter {
 
         long startTime = System.nanoTime();
         ArrayList<Long> simpleList = new ArrayList<>();
-        for(int i = 0; i < 500; ++i) {
+        for(int i = 0; i < 5000; ++i) {
             simpleList = (ArrayList<Long>) sorta.simpleSquareSorter(testValues);
         }
         long endTime = System.nanoTime();
@@ -45,7 +45,7 @@ public class SquareSorter {
 
         long optStartTime = System.nanoTime();
         ArrayList<Long> optimizedList = new ArrayList<>();
-        for(int i = 0; i < 500; ++i) {
+        for(int i = 0; i < 5000; ++i) {
             optimizedList = (ArrayList<Long>) sorta.optimizedSquareSorter(testValues);
         }
         long optendTime = System.nanoTime();
@@ -73,7 +73,7 @@ public class SquareSorter {
         }
         long optendTime = System.nanoTime();
         long optimizedDuration = (optendTime - optStartTime);
-        System.out.println("Optimized List creation took: " + TimeUnit.NANOSECONDS.toMillis(optimizedDuration) + " ms");
+        //System.out.println("Optimized List creation took: " + TimeUnit.NANOSECONDS.toMillis(optimizedDuration) + " ms");
 
         Collections.reverse(negList);
 
@@ -116,7 +116,7 @@ public class SquareSorter {
         }
         optendTime = System.nanoTime();
         optimizedDuration = (optendTime - optStartTime);
-        System.out.println("Optimized List merging took: " + TimeUnit.NANOSECONDS.toMillis(optimizedDuration) + " ms");
+        //System.out.println("Optimized List merging took: " + TimeUnit.NANOSECONDS.toMillis(optimizedDuration) + " ms");
 
         if (posIt.hasNext())
         {
