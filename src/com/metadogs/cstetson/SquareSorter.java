@@ -1,6 +1,5 @@
 package com.metadogs.cstetson;
 
-import java.io.*;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
@@ -36,13 +35,19 @@ public class SquareSorter {
         testValues = sorta.generateList( start, end, number);
 
         long startTime = System.nanoTime();
-        ArrayList<Long> simpleList = (ArrayList<Long>) sorta.simpleSquareSorter(testValues);
+        ArrayList<Long> simpleList = new ArrayList<>();
+        for(int i = 0; i < 500; ++i) {
+            simpleList = (ArrayList<Long>) sorta.simpleSquareSorter(testValues);
+        }
         long endTime = System.nanoTime();
         long simpleDuration = (endTime - startTime);
         System.out.println("Simple Sort took: " + TimeUnit.NANOSECONDS.toMillis(simpleDuration) + " ms");
 
         long optStartTime = System.nanoTime();
-        ArrayList<Long> optimizedList = (ArrayList<Long>) sorta.optimizedSquareSorter(testValues);
+        ArrayList<Long> optimizedList = new ArrayList<>();
+        for(int i = 0; i < 500; ++i) {
+            optimizedList = (ArrayList<Long>) sorta.optimizedSquareSorter(testValues);
+        }
         long optendTime = System.nanoTime();
         long optimizedDuration = (optendTime - optStartTime);
         System.out.println("Optimized Sort took: " + TimeUnit.NANOSECONDS.toMillis(optimizedDuration) + " ms\n");
@@ -142,16 +147,16 @@ public class SquareSorter {
 
     private ArrayList<Long> generateList(int start, int end, int number)
     {
-        ArrayList<Long> intArray = new ArrayList<>();
+        ArrayList<Long> longArray = new ArrayList<>();
 
         for( int i = 0; i < number; i++)
         {
             Random random = new Random();
             int bounds = end - start;
             int value = random.nextInt(bounds);
-            intArray.add((long) (value + start));
+            longArray.add((long) (value + start));
         }
-        Collections.sort(intArray);
-        return intArray;
+        Collections.sort(longArray);
+        return longArray;
     }
 }
